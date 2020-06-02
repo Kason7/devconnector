@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://kason7:kason7@devconnector-m6gt4.gcp.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "925d985634a9c2ec35b7",
+  "githubSecret": "c11d63e714aa9e4afd41c1a795a05e669988bc59"
+}
