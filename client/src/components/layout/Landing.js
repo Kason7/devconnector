@@ -14,7 +14,7 @@ const Landing = ({ isAuthenticated }) => {
         <div className='landing-inner'>
           <h1 className='x-large'>Welcome to AidRep</h1>
           <p className='lead'>
-            Create a Social responsibility profile, share posts about your
+            Create a Social Responsibility profile, share posts about your
             humanitarian and pro bono work
           </p>
           <div className='buttons'>
