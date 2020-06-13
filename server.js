@@ -2,6 +2,12 @@ const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
 
+// Passport resources (from Emaily course)
+const cookieSession = require('cookie-session'); // Used to encrypt the oauth cookies
+const passport = require('passport');
+const keys = require('./config/keys');
+require('./services/passport');
+
 const app = express();
 
 // Connect Database
@@ -9,6 +15,19 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
+
+// Middleware for passport oAuth (from Emaily course)
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000, // Has to be given in miliseconds, which is equal to 30 days
+    keys: [keys.cookieKey],
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Setting our routes for passport oAuth (from Emaily course)
+require('./routes/authRoutes')(app);
 
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
